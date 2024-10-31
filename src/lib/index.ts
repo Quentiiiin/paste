@@ -12,7 +12,7 @@ export async function submitContent(content: string, db: D1Database) {
     return id;
 }
 
-export async function getContent(id: string, db: D1Database) {
+export async function getContent(id: string, db: D1Database): Promise<string> {
     const res = await db
         .prepare('SELECT content FROM paste WHERE id = ?')
         .bind(id)
@@ -24,5 +24,10 @@ export async function getContent(id: string, db: D1Database) {
     if(res.results.length === 0) {
         return 'not found';
     }
-    return res.results[0].content;
+    const content = res.results[0].content;
+
+    if(typeof(content) === "string") {
+        return content;
+    }
+    return '';
 }

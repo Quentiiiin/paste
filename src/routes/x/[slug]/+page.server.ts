@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ params, platform }) => {
         }
     }
 
-    const content = await getContent(params.slug, db);
+    const content: string = await getContent(params.slug, db);
 
 
 	return {
