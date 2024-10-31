@@ -3,6 +3,12 @@ name = "paste"
 compatibility_date = "2024-10-22"
 pages_build_output_dir = ".svelte-kit/cloudflare"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "paste"
+database_id = "1be258e5-5988-4090-a04e-01229c366227"
+preview_database_id = "DBTEST"
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
