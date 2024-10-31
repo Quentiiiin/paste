@@ -2,7 +2,7 @@
     const {data} = $props();    
 </script>
 
-<div class=" p-2 whitespace-pre-line">
+<div class=" p-2 whitespace-pre">
     {data.content}
 </div>
 
