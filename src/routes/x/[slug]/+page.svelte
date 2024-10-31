@@ -21,6 +21,6 @@
     }
 </script>
 
-<div class="p-2 whitespace-pre">
+<div class="p-2 whitespace-pre overflow-scroll">
   {@html formatedText}
 </div>

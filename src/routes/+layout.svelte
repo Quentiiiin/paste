@@ -9,7 +9,7 @@
 	<a href="/">paste.quentins.space</a>
 	<a href="/new">new</a>
 </div>
-<div class=" bg-zinc-800 content text-zinc-50">
+<div class=" bg-zinc-800 content text-zinc-50 overflow-hidden">
 	{@render children()}
 </div>
 
