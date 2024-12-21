@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ params, platform, cookies }) => {
     let viewCount = content.viewCount;
 
     if(!hasSeen && content.success) {
-        addView(params.slug, db);
+        await addView(params.slug, db);
         viewCount = viewCount + 1;
     }
 
