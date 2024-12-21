@@ -1,6 +1,8 @@
 <script lang="ts">
     const { data } = $props();
 
+    const creationDate = formatDate(data.createdAt ?? 0); // do ?? 0 because why the fuck could it be undefined so just fuck it and remove editor error
+
     const formatedText = convertUrlsToAnchors(data.content);
 
     function escapeHtml(text: string) {
@@ -14,12 +16,25 @@
         return text.replace(/[&<>"']/g, (m) => map[m]);
     }
 
+    function formatDate(d: number) {
+        const date = new Date(d);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+
+        return `${day}.${month}.${year}`;
+    }
+
     function convertUrlsToAnchors(text: string) {
         const escapedText = escapeHtml(text);
         const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
         return escapedText.replace(urlRegex, (url) => `<a href="${url}" class="text-blue-300" target="_blank" rel="noopener noreferrer">${url}</a>`);
     }
 </script>
+
+<div class=" pl-2 pt-2 text-blue-200">
+    [views: {data.viewCount}] [created: {creationDate}]
+</div>
 
 <div class="p-2 whitespace-pre overflow-scroll">
   {@html formatedText}
