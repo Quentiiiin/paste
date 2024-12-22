@@ -18,3 +18,7 @@
 		min-height: calc(100vh - 2rem);
 	}
 </style>
+
+<svelte:head>
+	<title>paste.quentins.space</title>
+</svelte:head>
