@@ -32,6 +32,8 @@
     }
 </script>
 
+
+{#if data.success}
 <div class=" pl-2 pt-2 text-blue-200">
     [views: {data.viewCount}] [created: {creationDate}]
 </div>
@@ -39,3 +41,13 @@
 <div class="p-2 whitespace-pre overflow-scroll">
   {@html formatedText}
 </div>
+{:else}
+<div class=" flex w-screen items-center justify-center mt-20">
+    <div class="flex flex-col">
+        <span class="text-red-400 text-xl text-center">
+            {data.content}
+        </span>
+        <a class=" text-blue-300 text-xl" href="/">[create new post instead?]</a>
+    </div>
+</div>
+{/if}
